@@ -1,5 +1,6 @@
 package org.pdfwordcounter.bot;
 
+import lombok.extern.slf4j.Slf4j;
 import org.pdfwordcounter.model.FileInfo;
 import org.pdfwordcounter.parser.FileParser;
 import org.pdfwordcounter.parser.PdfFileParser;
@@ -11,8 +12,10 @@ import org.telegram.telegrambots.meta.api.objects.File;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+
 import java.net.URL;
 
+@Slf4j
 public class FileWordCounterBot extends TelegramLongPollingBot {
 
     private static final String TELEGRAM_URL = "https://api.telegram.org/file/bot";
@@ -34,6 +37,7 @@ public class FileWordCounterBot extends TelegramLongPollingBot {
         Message message = update.getMessage();
         if (message.getDocument() != null) {
             Document document = message.getDocument();
+            log.info("File name: {}", document.getFileName());
             GetFile request = new GetFile(document.getFileId());
             try {
                 File execute = this.execute(request);
@@ -41,14 +45,14 @@ public class FileWordCounterBot extends TelegramLongPollingBot {
                 FileInfo parse = fileParser.parse(url, document.getFileName());
                 this.execute(new SendMessage(message.getChatId().toString(), this.generateMessage(parse)));
             } catch (Exception e) {
-                e.printStackTrace();
+                log.error("Parse file error: {}", e.getMessage());
             }
         } else {
-            System.out.println(message.getText());
+            log.info("Message from client: {}", message.getText());
             try {
                 this.execute(new SendMessage(message.getChatId().toString(), "Добро пожаловать \nДля того чтобы посчитать количество слов и символов в файле формата pdf просто загрузи его!\nУдачного пользования"));
             } catch (TelegramApiException e) {
-                e.printStackTrace();
+                log.error("Send message error: {}", e.getMessage());
             }
         }
     }
