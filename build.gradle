@@ -14,9 +14,6 @@ repositories {
     mavenCentral()
 }
 
-task stage(dependsOn: ['build', 'clean'])
-build.mustRunAfter clean
-
 dependencies {
     implementation 'com.itextpdf:itextpdf:5.3.4'
     implementation 'org.telegram:telegrambots:5.1.0'
