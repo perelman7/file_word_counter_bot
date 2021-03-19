@@ -11,7 +11,7 @@
         <module name="file_word_counter.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="15">
+    <bytecodeTargetLevel target="1.8">
       <module name="file_word_counter_bot" target="8" />
     </bytecodeTargetLevel>
   </component>

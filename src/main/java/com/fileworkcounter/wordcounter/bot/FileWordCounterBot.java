@@ -1,9 +1,9 @@
-package org.pdfwordcounter.bot;
+package com.fileworkcounter.wordcounter.bot;
 
+import com.fileworkcounter.wordcounter.model.FileInfo;
+import com.fileworkcounter.wordcounter.parser.FileParser;
+import com.fileworkcounter.wordcounter.parser.PdfFileParser;
 import lombok.extern.slf4j.Slf4j;
-import org.pdfwordcounter.model.FileInfo;
-import org.pdfwordcounter.parser.FileParser;
-import org.pdfwordcounter.parser.PdfFileParser;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.GetFile;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;

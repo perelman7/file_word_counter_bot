@@ -1,4 +1,4 @@
-package org.pdfwordcounter.model;
+package com.fileworkcounter.wordcounter.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

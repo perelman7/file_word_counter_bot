@@ -1,8 +1,8 @@
-package org.pdfwordcounter.parser;
+package com.fileworkcounter.wordcounter.parser;
 
+import com.fileworkcounter.wordcounter.model.FileInfo;
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.parser.PdfTextExtractor;
-import org.pdfwordcounter.model.FileInfo;
 
 import java.net.URL;
 
