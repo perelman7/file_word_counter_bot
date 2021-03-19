@@ -7,6 +7,12 @@ jar {
     }
 }
 
+task stage(type: Copy) {
+    from sourceSets.main.runtimeClasspath
+    into 'build/staging'
+}
+stage.dependsOn build
+
 group 'org.wordcounter'
 version '1.0'
 
