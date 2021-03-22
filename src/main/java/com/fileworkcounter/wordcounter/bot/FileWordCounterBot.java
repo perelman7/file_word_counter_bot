@@ -25,10 +25,10 @@ public class FileWordCounterBot extends TelegramLongPollingBot {
     @Value("${telegram.bot.file.url}")
     private String TELEGRAM_URL;
 
-    @Value("${telegram.bot.username}")
+    @Value("${telegram.bot.counter.username}")
     private String BOT_USERNAME;
 
-    @Value("${telegtam.bot.token}")
+    @Value("${telegtam.bot.counter.token}")
     private String BOT_TOKEN;
 
     @Override
@@ -42,7 +42,6 @@ public class FileWordCounterBot extends TelegramLongPollingBot {
     }
 
     @Override
-    @SneakyThrows
     public void onUpdateReceived(Update update) {
         Message message = update.getMessage();
         User from = message.getFrom();
