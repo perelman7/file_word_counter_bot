@@ -21,7 +21,7 @@ public class RenewServiceScheduler {
     @Value("${base.url}")
     private String BASE_URL;
 
-    @Scheduled(cron = "0 */10 6-22 * * *")
+    @Scheduled(cron = "0 */10 * * * *")
     public void renew() {
         log.info("Renew : {}", LocalDateTime.now().toString());
         restTemplate.exchange(BASE_URL + "/renew", HttpMethod.POST, HttpEntity.EMPTY, String.class);
