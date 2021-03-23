@@ -21,6 +21,9 @@ public class RenewServiceScheduler {
     @Value("${base.url}")
     private String BASE_URL;
 
+    /**
+     * Create traffic for taking service awake
+     */
     @Scheduled(cron = "0 */10 * * * *")
     public void renew() {
         log.info("Renew : {}", LocalDateTime.now().toString());
