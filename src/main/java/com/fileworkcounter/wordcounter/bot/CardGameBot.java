@@ -39,6 +39,7 @@ public class CardGameBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
+        log.info("Начало обновления...");
         try {
             if (update.getMessage() != null && update.getMessage().getText().equals("/start")) {
                 User sender = update.getMessage().getFrom();
