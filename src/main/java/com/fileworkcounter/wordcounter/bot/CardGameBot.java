@@ -56,6 +56,7 @@ public class CardGameBot extends TelegramLongPollingBot {
                 log.info("Unsupported message was send by: {} {} {} {}", sender.getId(), sender.getUserName(), sender.getFirstName(), sender.getLastName());
                 execute(new SendMessage(update.getMessage().getChatId().toString(), "Я пока не умею общаться :("));
                 log.info("Общение закончено...");
+                log.info("test log");
             }
         } catch (Exception e) {
             log.error("Game bot get error: {}", e.getMessage());
